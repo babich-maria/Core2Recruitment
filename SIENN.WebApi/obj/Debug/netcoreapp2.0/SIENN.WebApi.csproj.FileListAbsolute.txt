@@ -1,0 +1,13 @@
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.WebApi.deps.json
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.WebApi.runtimeconfig.json
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.WebApi.runtimeconfig.dev.json
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.WebApi.dll
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.WebApi.pdb
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.DbAccess.dll
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\bin\Debug\netcoreapp2.0\SIENN.DbAccess.pdb
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.csprojResolveAssemblyReference.cache
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.csproj.CoreCompileInputs.cache
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.AssemblyInfoInputs.cache
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.AssemblyInfo.cs
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.dll
+C:\Users\Masha\Downloads\Core2Recruitment-master-fadc1d35b0bfaa70f0a39418f7b16e974d422af1\Core2Recruitment\SIENN.WebApi\obj\Debug\netcoreapp2.0\SIENN.WebApi.pdb
