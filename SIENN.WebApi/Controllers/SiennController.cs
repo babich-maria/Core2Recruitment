@@ -30,7 +30,7 @@ namespace SIENN.WebApi.Controllers
         {
             var available = _productRepository.GetAvailableProducts(skip, take);
 
-            StringBuilder str = new StringBuilder(string.Empty);
+            var str = new StringBuilder(string.Empty);
             foreach (var item in available)
             {
                 str.AppendLine($"{item.Code}   {item.Description}");
@@ -43,9 +43,9 @@ namespace SIENN.WebApi.Controllers
         [Route("api/GetFilteredProducts")]
         public string GetFilteredProducts(string type = "", string category = "", string unit = "")
         {
-            var available = _productRepository.GetFilteredProducts(type.Trim(), category.Trim(), unit.Trim());     
+            var available = _productRepository.GetFilteredProducts(type.Trim(), category.Trim(), unit.Trim());
             //TODO  create service to incapsulate this logic
-            StringBuilder str = new StringBuilder();
+            var str = new StringBuilder();
             str.AppendLine($"Description      Type      Unit      Price      Caterories");
             str.AppendLine($"---------------------------------------------------------------------");
             foreach (var item in available)
@@ -61,10 +61,9 @@ namespace SIENN.WebApi.Controllers
         public string GetProductInfo(string code)
         {           
             var p = _productRepository.GetProductInfo(code);
-            if (p == null) return string.Empty;
-          
+            if (p == null) return string.Empty;          
 
-            StringBuilder str = new StringBuilder(string.Empty);
+            var str = new StringBuilder(string.Empty);
             str.AppendLine($"ProductDescription   ({p.Code}) {p.Description}");
             str.AppendLine($"Price                {p.Price:F02} zl");
             str.AppendLine($"IsAvailable          {(p.IsAvailable ? "Dostępny" : "Niedostępny")}");
