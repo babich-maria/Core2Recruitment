@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;using System;
+using Microsoft.Extensions.Logging;
+using SIENN.DbAccess.Repositories;
+using System;
 
 namespace SIENN.WebApi
 {
@@ -20,8 +22,8 @@ namespace SIENN.WebApi
                 var services = scope.ServiceProvider;
                 try
                 {
-                    //var context = services.GetRequiredService<StoreContext>();
-                    //DbAccess.Data.DbInitializer.Initialize(context);
+                  //  var context = services.GetRequiredService<StoreContext>();
+                  //  DbAccess.Data.DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace SIENN.DbAccess.Data
 {
@@ -18,7 +17,7 @@ namespace SIENN.DbAccess.Data
         public bool IsAvailable { get; set; }
         public DateTime DeliveryDate { get; set; }
 
-        public ICollection<ProductCategory> ProductCategory { get; set; }  = new List<ProductCategory>();
+        public IList<ProductCategory> ProductCategory { get; set; }  = new List<ProductCategory>();
 
         [Required]
         public Type Type { get; set; }

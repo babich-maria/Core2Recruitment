@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SIENN.DbAccess.Data
+﻿namespace SIENN.DbAccess.Data
 {
     public class ProductCategory
     {

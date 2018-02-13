@@ -28,16 +28,11 @@ namespace SIENN.WebApi
                     Title = "SIENN Recruitment API"
                 });
             });
-
-
            
-            services.AddDbContext<StoreContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("SIENN.WebApi")));
-
-            services.AddTransient<IProductRepository, ProductRepository>();
-         //   services.AddTransient<IGenericRepository<Product>, GenericRepository<Product>>();
+            services.AddDbContext<StoreContext>(options =>  options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"), 
+                b => b.MigrationsAssembly("SIENN.WebApi")));
+            services.AddTransient<IProductRepository, ProductRepository>(); 
             services.AddMvc();
-
-            
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

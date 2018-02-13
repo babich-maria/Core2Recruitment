@@ -3,6 +3,7 @@ using SIENN.DbAccess.Data;
 using SIENN.DbAccess.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SIENN.WebApi.Controllers
@@ -24,73 +25,66 @@ namespace SIENN.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/GetAvailable")]
-        public string GetAvailable(int skip, int take)
+        [Route("api/GetAvailableProducts")]
+        public string GetAvailableProducts(int skip, int take)
         {
             var available = _productRepository.GetAvailableProducts(skip, take);
 
-            StringBuilder MyStringBuilder = new StringBuilder(string.Empty);
+            StringBuilder str = new StringBuilder(string.Empty);
             foreach (var item in available)
             {
-                MyStringBuilder.AppendLine($"{item.Code}   {item.Description}");
+                str.AppendLine($"{item.Code}   {item.Description}");
             }
 
-            return MyStringBuilder.ToString();
+            return str.ToString();
         }
 
         [HttpGet]
-        [Route("api/GetFiltered")]
-        public string GetFiltered(FieldType fieldType, string value)
+        [Route("api/GetFilteredProducts")]
+        public string GetFilteredProducts(string type = "", string category = "", string unit = "")
         {
-            System.Func<Product, bool> predicate;
-            //switch (fieldType) {
-            //    case Category:
-            //        predicate = new System.Func<Product, bool>(Type.Description == "small");
-            //    }
-
-
-
-            var available = _productRepository.GetFilteredProducts(fieldType, value);
-
-            StringBuilder MyStringBuilder = new StringBuilder();
-            MyStringBuilder.AppendLine($"Description  Type");
-            MyStringBuilder.AppendLine($"-----------------");
+            var available = _productRepository.GetFilteredProducts(type.Trim(), category.Trim(), unit.Trim());     
+            //TODO  create service to incapsulate this logic
+            StringBuilder str = new StringBuilder();
+            str.AppendLine($"Description      Type      Unit      Price      Caterories");
+            str.AppendLine($"---------------------------------------------------------------------");
             foreach (var item in available)
             {
-                MyStringBuilder.AppendLine($"{item.Description}   {item.Type.Description}"/*, item.ProductCategory.*/);
+                str.AppendLine($"{item.Description}   {item.Type.Description}    {item.Unit.Description}     {item.Price}     {item.ProductCategory.Select(x=>x.Category.Description).Aggregate((a, b) => a + ", " + b)} ");
             }
 
-            return MyStringBuilder.ToString();
+            return str.ToString();
         }
-
 
         [HttpGet]
         [Route("api/GetProductInfo")]
         public string GetProductInfo(string code)
         {
-            var available = _productRepository.GetProductInfo(code);
+            //TODO check null
+            var p = _productRepository.GetProductInfo(code);
 
-            StringBuilder MyStringBuilder = new StringBuilder(string.Empty);
-            foreach (var item in available)
-            {
-                MyStringBuilder.AppendLine(item.Description);
-            }
-
-            return MyStringBuilder.ToString();
+            StringBuilder str = new StringBuilder(string.Empty);
+            str.AppendLine($"Description      Type      Unit      Price      Caterories");
+            str.AppendLine($"---------------------------------------------------------------------");
+            str.AppendLine($"{p.Description}   {p.Type.Description}    {p.Unit.Description}     {p.Price}     {p.ProductCategory.Count()} ");
+            
+            return str.ToString();
         }
 
         [HttpPost]
         [Route("api/AddProduct")]
-        public void AddProduct(string code, string descripton, decimal price)
+        public string AddProduct(string code, string descripton, decimal price)
         {
-
-            var type = new SIENN.DbAccess.Data.Type { Code = "S", Description = "small" };
+            //TODO  create service to incapsulate this logic
+            //TODO add existed
+            var type = new DbAccess.Data.Type { Code = "S", Description = "small" };
             var unit = new Unit { Code = "ucc", Description = "USA" };
             var category = new Category { Code = "C06", Description = "Furniture" };
             var product = new Product
             {
                 Code = code,
                 Description = descripton,
+                IsAvailable = true,
                 DeliveryDate = DateTime.Now.Add(new TimeSpan(1, 1, 1)),
                 Price = price,
                 Type = type,
@@ -100,20 +94,16 @@ namespace SIENN.WebApi.Controllers
             product.ProductCategory = new List<ProductCategory>
             {
                  new ProductCategory
-                       {
-                                Product = product,
-                                Category = category
-                      }
-            };
-            
+                 {
+                       Product = product,
+                       Category = category
+                 }
+            };            
 
             _productRepository.Add(product);
-            //TODO better to implement Unit Of Work
-            _productRepository.Save();
+            //TODO better solution is to implement Unit Of Work
+            return _productRepository.Save();
             
         }
-
-
     }
-
 }

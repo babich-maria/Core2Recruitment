@@ -39,7 +39,6 @@ namespace SIENN.DbAccess.Repositories
             return _entities.Where(predicate);
         }
 
-
         public virtual int Count()
         {
             return _entities.Count();
@@ -56,7 +55,6 @@ namespace SIENN.DbAccess.Repositories
         }
 
         protected DbSet<TEntity> _entities;
-        protected DbContext _context;
-       
+        protected DbContext _context;       
     }
 }
