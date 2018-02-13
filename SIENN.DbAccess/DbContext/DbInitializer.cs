@@ -48,11 +48,11 @@ namespace SIENN.DbAccess.Data
 
             var products = new Product[]
             {
-                new Product{Code="001",Description="Picture",   DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=true,Price=12.02M,Type=types[0], Unit=units[0]},
-                new Product{Code="002",Description="Mixer",     DeliveryDate=DateTime.Parse("2003-09-01"),IsAvailable=true,Price=222.21M,Type=types[0], Unit=units[1]},
-                new Product{Code="003",Description="chair",     DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=true,Price=102.24M,Type=types[0], Unit=units[0]},
-                new Product{Code="004",Description="chair2",    DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=true,Price=512.52M,Type=types[1], Unit=units[0]},
-                new Product{Code="005",Description="sofa",      DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=false,Price=12.72M,Type=types[1], Unit=units[0]},
+                new Product{Code="001",Description="Picture",   DeliveryDate=DateTime.Parse("2018-09-01"),IsAvailable=true,Price=12.0652M,Type=types[0], Unit=units[0]},
+                new Product{Code="002",Description="Mixer",     DeliveryDate=DateTime.Parse("2003-09-01"),IsAvailable=true,Price=222.210456456M,Type=types[0], Unit=units[1]},
+                new Product{Code="003",Description="chair",     DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=true,Price=102.23454M,Type=types[0], Unit=units[0]},
+                new Product{Code="004",Description="chair2",    DeliveryDate=DateTime.Parse("2002-09-01"),IsAvailable=true,Price=512.5442M,Type=types[1], Unit=units[0]},
+                new Product{Code="005",Description="sofa",      DeliveryDate=DateTime.Parse("2018-02-21"),IsAvailable=false,Price=12.72M,Type=types[1], Unit=units[0]},
                 new Product{Code="006",Description="Capucinator",DeliveryDate=DateTime.Parse("2013-09-01"),IsAvailable=true,Price=222.22M,Type=types[0], Unit=units[1]},
                 new Product{Code="007",Description="Light",     DeliveryDate=DateTime.Parse("2012-09-01"),IsAvailable=true,Price=102.12M,Type=types[0], Unit=units[0]},
                 new Product{Code="008",Description="Flower",    DeliveryDate=DateTime.Parse("2002-06-01"),IsAvailable=true,Price=52.24M,Type=types[1], Unit=units[0]},

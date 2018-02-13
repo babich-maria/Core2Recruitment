@@ -11,10 +11,10 @@ namespace SIENN.WebApi.Controllers
     [Route("api/[controller]")]
     public class SiennController : Controller
     {
-        private readonly IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;    
         public SiennController(IProductRepository productRepository)
         {
-            _productRepository = productRepository;
+            _productRepository = productRepository;        
         }
 
         [HttpGet]
@@ -59,26 +59,34 @@ namespace SIENN.WebApi.Controllers
         [HttpGet]
         [Route("api/GetProductInfo")]
         public string GetProductInfo(string code)
-        {
-            //TODO check null
+        {           
             var p = _productRepository.GetProductInfo(code);
+            if (p == null) return string.Empty;
+          
 
             StringBuilder str = new StringBuilder(string.Empty);
-            str.AppendLine($"Description      Type      Unit      Price      Caterories");
-            str.AppendLine($"---------------------------------------------------------------------");
-            str.AppendLine($"{p.Description}   {p.Type.Description}    {p.Unit.Description}     {p.Price}     {p.ProductCategory.Count()} ");
-            
+            str.AppendLine($"ProductDescription   ({p.Code}) {p.Description}");
+            str.AppendLine($"Price                {p.Price:F02} zl");
+            str.AppendLine($"IsAvailable          {(p.IsAvailable ? "Dostępny" : "Niedostępny")}");
+            str.AppendLine($"DeliveryDate         {p.DeliveryDate:MM.dd.yyyy}");
+            str.AppendLine($"CategoriesCount      {p.ProductCategory.Count()}");
+            str.AppendLine($"Type                 ({p.Type.Code}) {p.Type.Description}");
+            str.AppendLine($"Unit                 ({p.Unit.Code}) {p.Unit.Description}");
+
             return str.ToString();
         }
 
         [HttpPost]
         [Route("api/AddProduct")]
         public string AddProduct(string code, string descripton, decimal price)
-        {
+        {            
+            //TODO add repositories for other entity, to be able to get data from them
+            //without them it is possible here like:   
+            //var existingType = _StoreContext.Types.FirstOrDefault();
+
             //TODO  create service to incapsulate this logic
-            //TODO add existed
-            var type = new DbAccess.Data.Type { Code = "S", Description = "small" };
-            var unit = new Unit { Code = "ucc", Description = "USA" };
+            var type = new DbAccess.Data.Type { Code = "M", Description = "medium" };
+            var unit = new Unit { Code = "es", Description = "ES" };
             var category = new Category { Code = "C06", Description = "Furniture" };
             var product = new Product
             {
@@ -101,9 +109,8 @@ namespace SIENN.WebApi.Controllers
             };            
 
             _productRepository.Add(product);
-            //TODO better solution is to implement Unit Of Work
-            return _productRepository.Save();
-            
+            //TODO better solution is:  Unit Of Work implementation which will be responsible for save
+            return _productRepository.Save();            
         }
     }
 }

@@ -22,8 +22,8 @@ namespace SIENN.WebApi
                 var services = scope.ServiceProvider;
                 try
                 {
-                  //  var context = services.GetRequiredService<StoreContext>();
-                  //  DbAccess.Data.DbInitializer.Initialize(context);
+                    var context = services.GetRequiredService<StoreContext>();
+                    DbAccess.Data.DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)
                 {
